@@ -37,7 +37,7 @@ const createMainWindow = async () => {
 		width: 600,
 		height: 400,
 		webPreferences: {
-			devTools: false
+			devTools: true
 			}
 	});
 
