@@ -1,4 +1,19 @@
-function CreateChart() {
+
+function connect() {
+    let { PythonShell } = require("python-shell");
+    var path = require("path");
+
+    var options = {
+        scriptPath: path.join(__dirname, '/backend/')
+    }
+    var testRetrieval = new PythonShell('testRetrieval.py', options);
+    testRetrieval.on('message', function (message) {
+        CreateChart(message);
+    });
+}
+
+
+function CreateChart(inputData) {
 
     var Chart = require('chart.js');
     var ctx = document.getElementById('chart').getContext('2d');
@@ -8,7 +23,8 @@ function CreateChart() {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                //data: [12, 19, 3, 5, 2, 3],
+                data: JSON.parse(inputData),
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -39,6 +55,3 @@ function CreateChart() {
         }
     });
 }
-
-var btn = document.getElementById("createCharts");
-btn.addEventListener("click", CreateChart);

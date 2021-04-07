@@ -17,78 +17,35 @@
   <div class="container">
     <div class="row">
       <div class="col-lg text-center">
-        <h3>This is an application</h3>
+        <h3>Oxygen Transport Visual Representation</h3>
       </div>
     </div>
-    <div class="vertical-center">
-      <div class="row">
-        <div class="col-4 text-center">
-          <div class="container">
-            <div>
-              <input type="text" placeholder="variable 1" id="var1" style="margin: 20px;">
-            </div>
-            <div>
-              <input type="text" placeholder="variable 2" id="var2" style="margin: 20px;">
-            </div>
-            <div>
-              <input type=" text" placeholder="variable 3" id="var3" style="margin: 20px;">
-            </div>
-            <button type=" button" class="btn btn-primary" onclick="">Primary</button>
+    <div class="row">
+      <div class="col-4 text-center">
+        <div class="container" style="margin-top: 200px;">
+          <div>
+            <input type="text" placeholder="variable 1" id="var1" style="margin: 20px;">
           </div>
+          <div>
+            <input type="text" placeholder="variable 2" id="var2" style="margin: 20px;">
+          </div>
+          <div>
+            <input type=" text" placeholder="variable 3" id="var3" style="margin: 20px;">
+          </div>
+          <button type=" button" class="btn btn-primary" id="createCharts" onclick="connect()">Create charts</button>
         </div>
-        <div class="col-8 text-center">
-          <div class="container">
-            <!--Insert charts-->
-            <canvas id="chart" width="400" height="400"></canvas>
-            <script>
-              var Chart = require('chart.js');
-              var ctx = document.getElementById('chart').getContext('2d');
-              var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                  datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                      'rgba(255, 99, 132, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                  }]
-                },
-                options: {
-                  scales: {
-                    yAxes: [{
-                      ticks: {
-                        beginAtZero: true
-                      }
-                    }]
-                  }
-                }
-              });
-
-            </script>
-          </div>
+      </div>
+      <div class="col-8 text-center">
+        <div class="container">
+          <!--Insert charts-->
+          <canvas id="chart" width="400" height="400"></canvas>
         </div>
       </div>
     </div>
   </div>
   <!--Scripts go here-->
   <script src="./renderer.js"></script>
-
+  <script src="./connectors/testConnector.js"></script>
   <!--CSS goes here-->
   <style>
     .vertical-center {
