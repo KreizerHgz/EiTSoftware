@@ -24,15 +24,16 @@
       <div class="col-4 text-center">
         <div class="container" style="margin-top: 200px;">
           <div>
-            <input type="text" placeholder="variable 1" id="var1" style="margin: 20px;">
+            <input type="text" placeholder="variable 1" id="var1" style="margin: 20px;" onkeyup="btnState()">
           </div>
           <div>
-            <input type="text" placeholder="variable 2" id="var2" style="margin: 20px;">
+            <input type="text" placeholder="variable 2" id="var2" style="margin: 20px;" onkeyup="btnState()">
           </div>
           <div>
-            <input type=" text" placeholder="variable 3" id="var3" style="margin: 20px;">
+            <input type=" text" placeholder="variable 3" id="var3" style="margin: 20px;" onkeyup="btnState()">
           </div>
-          <button type=" button" class="btn btn-primary" id="createCharts" onclick="connect()">Create charts</button>
+          <button type=" button" class="btn btn-primary" id="createCharts" onclick="connect()" disabled>Create
+            charts</button>
         </div>
       </div>
       <div class="col-8 text-center">
@@ -46,6 +47,17 @@
   <!--Scripts go here-->
   <script src="./renderer.js"></script>
   <script src="./connectors/testConnector.js"></script>
+  <script type="text/javascript">
+    function btnState() {
+      if (document.getElementById('var1').value.length > 0) {
+        if (document.getElementById('var2').value.length > 0) {
+          if (document.getElementById('var3').value.length > 0) {
+            document.getElementById('createCharts').disabled = false;
+          }
+        }
+      }
+    }
+  </script>
   <!--CSS goes here-->
   <style>
     .vertical-center {

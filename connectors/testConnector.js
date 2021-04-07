@@ -3,9 +3,24 @@ function connect() {
     let { PythonShell } = require("python-shell");
     var path = require("path");
 
+    var var1 = document.getElementById('var1').value
+    document.getElementById('var1').value = "";
+
+    var var2 = document.getElementById('var2').value
+    document.getElementById('var2').value = "";
+
+    var var3 = document.getElementById('var3').value
+    document.getElementById('var3').value = "";
+
+    document.getElementById('createCharts').disabled = true;
+
     var options = {
-        scriptPath: path.join(__dirname, '/backend/')
+        scriptPath: path.join(__dirname, '/backend/'),
+        args: [var1, var2, var3]
     }
+
+    console.log(options.args);
+
     var testRetrieval = new PythonShell('testRetrieval.py', options);
     testRetrieval.on('message', function (message) {
         CreateChart(message);
