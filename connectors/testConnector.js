@@ -3,20 +3,26 @@ function connect() {
     let { PythonShell } = require("python-shell");
     var path = require("path");
 
-    var var1 = document.getElementById('var1').value
-    document.getElementById('var1').value = "";
+    var Width = document.getElementById('Width').value
+    document.getElementById('Width').value = "";
 
-    var var2 = document.getElementById('var2').value
-    document.getElementById('var2').value = "";
+    var Depth = document.getElementById('Depth').value
+    document.getElementById('Depth').value = "";
 
-    var var3 = document.getElementById('var3').value
-    document.getElementById('var3').value = "";
+    var Temperature = document.getElementById('Temperature').value
+    document.getElementById('Temperature').value = "";
+
+    var Pressure = document.getElementById('Pressure').value
+    document.getElementById('Pressure').value = "";
+
+    var Timestep = document.getElementById('Timestep').value
+    document.getElementById('Timestep').value = "";
 
     document.getElementById('createCharts').disabled = true;
 
     var options = {
         scriptPath: path.join(__dirname, '/backend/'),
-        args: [var1, var2, var3]
+        args: [Width, Depth, Temperature, Pressure, Timestep]
     }
 
     console.log(options.args);

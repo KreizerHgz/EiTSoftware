@@ -24,16 +24,21 @@
       <div class="col-4 text-center">
         <div class="container" style="margin-top: 200px;">
           <div>
-            <input type="text" placeholder="variable 1" id="var1" style="margin: 20px;" onkeyup="btnState()">
+            <input type="number" placeholder="Width" id="Width" style="margin: 20px;" onkeyup="btnState()">
           </div>
           <div>
-            <input type="text" placeholder="variable 2" id="var2" style="margin: 20px;" onkeyup="btnState()">
+            <input type="number" placeholder="Depth" id="Depth" style="margin: 20px;" onkeyup="btnState()">
           </div>
           <div>
-            <input type=" text" placeholder="variable 3" id="var3" style="margin: 20px;" onkeyup="btnState()">
+            <input type="number" placeholder="Temperature" id="Temperature" style="margin: 20px;" onkeyup="btnState()">
           </div>
-          <button type=" button" class="btn btn-primary" id="createCharts" onclick="connect()" disabled>Create
-            charts</button>
+          <div>
+            <input type="number" placeholder="Pressure" id="Pressure" style="margin: 20px;" onkeyup="btnState()">
+          </div>
+          <div>
+            <input type="number" placeholder="Timestep" id="Timestep" style="margin: 20px;" onkeyup="btnState()">
+          </div>
+          <button type=" button" class="btn btn-primary" id="createCharts" onclick="connect()" disabled>Run</button>
         </div>
       </div>
       <div class="col-8 text-center">
@@ -49,10 +54,14 @@
   <script src="./connectors/testConnector.js"></script>
   <script type="text/javascript">
     function btnState() {
-      if (document.getElementById('var1').value.length > 0) {
-        if (document.getElementById('var2').value.length > 0) {
-          if (document.getElementById('var3').value.length > 0) {
-            document.getElementById('createCharts').disabled = false;
+      if (document.getElementById('Width').value.length > 0) {
+        if (document.getElementById('Depth').value.length > 0) {
+          if (document.getElementById('Temperature').value.length > 0) {
+            if (document.getElementById('Pressure').value.length > 0) {
+              if (document.getElementById('Timestep').value.length > 0) {
+                document.getElementById('createCharts').disabled = false;
+              }
+            }
           }
         }
       }
