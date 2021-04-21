@@ -1,4 +1,3 @@
-
 function connect() {
     let { PythonShell } = require("python-shell");
     var path = require("path");
@@ -29,6 +28,10 @@ function connect() {
 
     var testRetrieval = new PythonShell('testRetrieval.py', options);
     testRetrieval.on('message', function (message) {
-        console.log(message);
+        CreateCharts();
     });
+}
+
+function CreateCharts() {
+
 }
