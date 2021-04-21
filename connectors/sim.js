@@ -26,6 +26,8 @@ function connect() {
 
     console.log(options.args);
 
+    document.getElementById("gif").style.display = "inline"
+
     var testRetrieval = new PythonShell('testRetrieval.py', options);
     testRetrieval.on('message', function (message) {
         CreateCharts();
@@ -60,4 +62,6 @@ function CreateCharts() {
     img4.src = "./images/sq.png"
     var cap4 = document.getElementById("img4Caption");
     cap4.innerHTML = "Test4"
+
+    document.getElementById("gif").style.display = "none"
 }
