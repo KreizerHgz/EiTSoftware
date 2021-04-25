@@ -2,26 +2,26 @@ function connect() {
     let { PythonShell } = require("python-shell");
     var path = require("path");
 
-    var Width = document.getElementById('Width').value
-    document.getElementById('Width').value = "";
+    var mpSpace = document.getElementById('mpSpace').value
+    document.getElementById('mpSpace').value = "";
 
-    var Depth = document.getElementById('Depth').value
-    document.getElementById('Depth').value = "";
+    var mpTime = document.getElementById('mpTime').value
+    document.getElementById('mpTime').value = "";
 
-    var Temperature = document.getElementById('Temperature').value
-    document.getElementById('Temperature').value = "";
+    var kwt = document.getElementById('kwt').value
+    document.getElementById('kwt').value = "";
 
-    var Pressure = document.getElementById('Pressure').value
-    document.getElementById('Pressure').value = "";
+    var kwb = document.getElementById('kwb').value
+    document.getElementById('kwb').value = "";
 
-    var Timestep = document.getElementById('Timestep').value
-    document.getElementById('Timestep').value = "";
+    var Time = document.getElementById('Time').value
+    document.getElementById('Time').value = "";
 
     document.getElementById('createCharts').disabled = true;
 
     var options = {
         scriptPath: path.join(__dirname, '/backend/'),
-        args: [Width, Depth, Temperature, Pressure, Timestep]
+        args: [mpSpace, mpTime, kwt, kwb, Time]
     }
 
     console.log(options.args);
@@ -30,7 +30,12 @@ function connect() {
 
     var testRetrieval = new PythonShell('simulationScript.py', options);
     testRetrieval.on('message', function (message) {
-        CreateCharts();
+        if (message == "OK") {
+            CreateCharts();
+        }
+        else {
+            HandleError();
+        }
     });
 }
 
@@ -64,4 +69,9 @@ function CreateCharts() {
     cap4.innerHTML = "Test4"
 
     document.getElementById("gif").style.display = "none"
+}
+
+function HandleError() {
+    document.getElementById("gif").style.display = "none"
+    alert("An exception occurred");
 }
