@@ -118,7 +118,7 @@ def solver1D_TDMA_w_BC(kwt, kwb, K_func, C0_func, St_func, Sb_func, Nz, Nt, dept
     return C, z, t, K, S[0, :]
 
 
-# These are functions to plot various things
+# These are functions to plot various things (for testing)
 
 def plot_situation(C, z, t, K):
     fig, axs = plt.subplots(2, 2, figsize=(8, 8))
@@ -171,15 +171,6 @@ def plot_variance_and_expval(C, z, t):
 
     plt.show()
 
-
-# Some temporary test variables
-kw = 10
-depth = 100
-dz = 0.1
-dt = 0.1
-totalTime = 60 * 60 * 24 * 365
-Nz = 1001
-Nt = 5001
 
 # functions for K(z), C_0(z) and S(t)
 
@@ -234,14 +225,6 @@ def S3(t):
 
 
 # ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------------------------------------
 
 # Arguments passed from js
 Nz = int(sys.argv[1])
@@ -249,6 +232,8 @@ Nt = int(sys.argv[2])
 kwt = int(sys.argv[3])
 kwb = int(sys.argv[4])
 totalTime = int(sys.argv[5])
+
+depth = 100
 
 # Values that are guaranteed to work
 # Nz = 1001
@@ -302,20 +287,11 @@ try:
     plt.legend()
     plt.savefig('./images/CoefficientDeep.png')
     plt.clf()
+    sys.stdout.flush()
     print("OK")
 except TypeError:
+    sys.stdout.flush()
     print("typeError")
 except:
+    sys.stdout.flush()
     print("Undefined")
-sys.stdout.flush()
-
-# Test plot (use for referance when saving to file)
-# yoyoyo = np.arange(0, 10, 0.1)
-# yoyo = np.sin(yoyoyo)
-# yo = np.cos(yoyoyo)
-
-# plt.plot(yoyoyo, yo)
-# plt.savefig('./images/figure1.png')
-# plt.clf()
-# plt.plot(yoyoyo, yoyo)
-# plt.savefig('./images/figure2.png')

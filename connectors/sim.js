@@ -45,28 +45,28 @@ function CreateCharts() {
     img1.style.height = "320px"
     img1.src = "./images/ConcentrationShallow.png"
     var cap1 = document.getElementById("img1Caption");
-    cap1.innerHTML = "Test1"
+    cap1.innerHTML = "Oxygen Concentration at 100m"
 
     var img2 = document.getElementById("testImage2");
     img2.style.width = "400px"
     img2.style.height = "320px"
     img2.src = "./images/CoefficientShallow.png"
     var cap2 = document.getElementById("img2Caption");
-    cap2.innerHTML = "Test2"
+    cap2.innerHTML = "Diffusion coefficient at 100m"
 
     var img3 = document.getElementById("testImage3");
     img3.style.width = "400px"
     img3.style.height = "320px"
     img3.src = "./images/ConcentrationDeep.png"
     var cap3 = document.getElementById("img3Caption");
-    cap3.innerHTML = "Test3"
+    cap3.innerHTML = "Oxygen Concentration at 3000m"
 
     var img4 = document.getElementById("testImage4");
     img4.style.width = "400px"
     img4.style.height = "320px"
     img4.src = "./images/CoefficientDeep.png"
     var cap4 = document.getElementById("img4Caption");
-    cap4.innerHTML = "Test4"
+    cap4.innerHTML = "Diffusion coefficient at 3000m"
 
     document.getElementById("gif").style.display = "none"
 }
