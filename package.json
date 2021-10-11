@@ -21,6 +21,6 @@
     "bootstrap": "^5.0.0-beta3",
     "chart.js": "^2.9.4",
     "electron-chartjs": "^1.0.0",
-    "python-shell": "^3.0.0"
+    "python-shell": "^3.0.1"
   }
 }
