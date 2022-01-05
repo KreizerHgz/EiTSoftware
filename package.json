@@ -17,7 +17,7 @@
     "electron": "^12.0.0"
   },
   "dependencies": {
-    "@popperjs/core": "^2.9.1",
+    "@popperjs/core": "^2.11.2",
     "bootstrap": "^5.0.0-beta3",
     "chart.js": "^2.9.4",
     "electron-chartjs": "^1.0.0",
