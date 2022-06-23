@@ -14,7 +14,7 @@
   "author": "Kristoffer Hegge Østreim",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^12.0.0"
+    "electron": "^19.0.6"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.1",
